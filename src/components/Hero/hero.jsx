@@ -1,7 +1,7 @@
 import React from "react";
 import "./hero.scss";
 import profileImg from "../../assets/about.jpg";
-import cv from "../../assets/CV_Malek_Kouki.PDF";
+import cv from "../../assets/CV-Malek-Kouki.pdf";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Hero = () => {
