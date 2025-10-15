@@ -1,0 +1,135 @@
+@use "./helpers" as *;
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  @include prefixer(box-sizing, border-box, webkit moz);
+}
+
+body {
+  height: 100%;
+  &.light {
+    background-color: $light-background-color;
+    .navbar {
+      background-color: $light-background-color;
+    }
+    h1,
+    h2,
+    svg,
+    .nav-link {
+      color: $main-title-color;
+    }
+    span,
+    p,
+    label {
+      color: $main-text-color;
+    }
+    .bloc-git {
+      a {
+        border: 2px solid $main-title-color;
+      }
+      svg {
+        fill: $main-title-color;
+      }
+    }
+    .menu-btn {
+      background: $light-background-color;
+      svg {
+        fill: $main-title-color;
+      }
+    }
+  }
+  &.dark {
+    background-color: $dark-background-color;
+    .navbar {
+      background-color: $dark-background-color;
+    }
+    h1,
+    h2,
+    svg,
+    .nav-link {
+      color: $dark-title-color;
+    }
+    span,
+    p,
+    label {
+      color: $dark-text-color;
+    }
+    .bloc-git {
+      a {
+        border: 2px solid $dark-title-color;
+      }
+      svg {
+        fill: $dark-title-color;
+      }
+    }
+    .menu-btn {
+      background: $dark-background-color;
+      svg {
+        fill: $dark-title-color;
+      }
+    }
+  }
+  font: {
+    family: "Poppins", sans-serif;
+    size: 16px;
+  }
+  .bloc-desc {
+    text-align: center;
+    h2 {
+      font-family: "Lora", serif;
+      margin-bottom: 30px;
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 2px;
+        background: $main-primary-btn;
+        transform: translateY(-50%);
+        right: 100%;
+        margin-right: 10px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 2px;
+        background: $main-primary-btn;
+        transform: translateY(-50%);
+        left: 100%;
+        margin-left: 10px;
+      }
+    }
+  }
+  h3 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid #eaecee;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    color: $main-title-color;
+    @media #{$maxMedium} {
+      margin-top: 15px;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+@media #{$maxMobile} {
+  p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,101 @@
+@use "../../helpers/index" as *;
+
+.hero-section {
+  text-align: center;
+  padding: 40px 0;
+  @media #{$minMedium} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: left;
+    padding: 80px 0;
+  }
+  .intro {
+    .hello {
+      font-size: 1.7rem;
+      font-weight: 100;
+      @media #{$maxMobile} {
+        font-size: 1.3rem;
+      }
+    }
+    h1 {
+      font-weight: 600;
+      padding: 5px 0;
+      font-family: "Lora", serif;
+      span {
+        background: $main-primary-btn;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    p {
+      margin-bottom: 0;
+    }
+    .hero-action {
+      .bloc-git {
+        max-width: 50px;
+        margin: 20px auto;
+        a {
+          padding: 12px 6px;
+          border-radius: 8px;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+      .bloc-btn {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        .btn {
+          background: #1a0e32;
+          color: white;
+          text-transform: uppercase;
+          padding: 9px 30px;
+          font-weight: 500;
+          border-radius: 8px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.04);
+          }
+          @media #{$maxMobile} {
+            padding: 9px 17px;
+            font-size: 14px;
+          }
+        }
+        .cv {
+          background: $main-primary-btn;
+          color: white;
+          text-transform: uppercase;
+          padding: 9px 30px;
+          font-weight: 500;
+          border-radius: 8px;
+          text-decoration: none;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.04);
+          }
+          @media #{$maxMobile} {
+            padding: 9px 17px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .profileImg {
+    border-radius: 50%;
+    max-height: 400px;
+    object-fit: cover;
+    border: 3px solid $main-title-color;
+    @media #{$maxSmall} {
+      margin-top: 30px;
+      max-height: 300px;
+    }
+  }
+}

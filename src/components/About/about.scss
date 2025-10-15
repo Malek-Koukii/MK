@@ -1,0 +1,19 @@
+@use "../../helpers/index" as *;
+
+.container {
+  max-width: 1200px;
+  .about {
+    padding: 40px 0;
+    text-align: center;
+    @media #{$minMedium} {
+      padding: 80px 0;
+    }
+    .bloc-desc {
+      p {
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

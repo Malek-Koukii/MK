@@ -1,0 +1,25 @@
+@use "../../helpers/index" as *;
+
+.footer {
+  background: $main-secondary-btn;
+  padding: 20px 0;
+  text-align: center;
+  .top-footer {
+    border-bottom: 1px solid white;
+    .name {
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: white !important;
+    }
+    .right {
+      font-size: 13px;
+      color: white !important;
+    }
+  }
+  .website {
+    font-size: 13px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: white;
+  }
+}

@@ -1,0 +1,107 @@
+@use "../../helpers/index" as *;
+
+.container {
+  .contact {
+    padding: 40px 0;
+    @media #{$minMedium} {
+      padding: 80px 0;
+    }
+    .row {
+      margin-top: 30px;
+      @media #{$maxMedium} {
+        margin-top: 0;
+      }
+      .left-section {
+        max-width: 500px;
+        margin-top: 33px;
+        @media #{$maxMedium} {
+          margin-top: 0;
+          margin-bottom: 30px;
+          max-width: max-content;
+        }
+        .box-info {
+          display: flex;
+          gap: 15px;
+          &:not(:last-of-type) {
+            margin-bottom: 15px;
+          }
+        }
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        label {
+          font-size: 14px;
+          font-weight: 500;
+        }
+        input,
+        textarea {
+          border: none;
+          border-radius: 8px;
+          border: 1px solid #c8cdd1;
+          padding: 15px;
+          font-size: 14px;
+          &:focus {
+            outline: none;
+            border: 1px solid #1a0e32;
+          }
+        }
+        .error {
+          color: #f52135;
+          font-size: 12px;
+          margin-top: -10px;
+          margin-bottom: 0;
+        }
+        .contact-submit {
+          border: none;
+          color: white;
+          border-radius: 8px;
+          background: #0c4a57;
+          font-size: 15px;
+          padding: 10px;
+          font-weight: 500;
+          &:hover {
+            background: #0c4a57e3;
+          }
+        }
+      }
+      .popup {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        background-color: #333;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        opacity: 0.95;
+        z-index: 1000;
+        animation: fadeInOut 3s ease forwards;
+        &.success {
+          background-color: #28a745;
+        }
+        &.error {
+          background-color: #f52135;
+        }
+        @keyframes fadeInOut {
+          0% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          10% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+        }
+      }
+    }
+  }
+}
