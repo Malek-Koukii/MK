@@ -1,6 +1,6 @@
 const Title_Data = {
   about_title: "About Me",
-  portfolio_title: "My Portfolio",
+  portfolio_title: "Projects",
   contact_title: "Contact Me",
 };
 
