@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container">
         <div className="top-footer">
           <p className="name">Malek Kouki</p>
-          <p className="right">© 2025 All rights reserved.</p>
+          <p className="right">© 2026 All rights reserved.</p>
         </div>
         <p className="website">
           This website is built with React, Saas, Bootstrap5, React Email, Vite.

@@ -53,7 +53,7 @@ const Navbar = ({ toggleTheme, theme }) => {
             </li>
             <li className={`nav-item ${menu === "portfolio" ? "active" : ""}`}>
               <AnchorLink offset={90} href="#portfolio" className="nav-link">
-                Portfolio
+                Projects
               </AnchorLink>
             </li>
             <li className={`nav-item ${menu === "contact" ? "active" : ""}`}>

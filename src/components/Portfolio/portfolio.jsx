@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./portfolio.scss";
 import Title_Data from "../../data/titleData";
 import Portfolio_Data from "../../data/PortfolioData";
 
 const Portfolio = () => {
+  // 🔹 récupérer toutes les skills
+  const allSkills = Portfolio_Data.flatMap((p) => p.p_skills || []);
+  const uniqueTabs = Array.from(new Set(allSkills));
+  const tabs = ["All Projects", ...uniqueTabs];
+
+  const [activeTab, setActiveTab] = useState("All Projects");
+
+  // 🔹 filtrage
+  const filteredProjects =
+    activeTab === "All Projects"
+      ? Portfolio_Data
+      : Portfolio_Data.filter((project) =>
+          project.p_skills?.includes(activeTab),
+        );
+
   return (
     <div id="portfolio">
       <div className="container">
         <div className="portfolio">
+          {/* Description */}
           <div className="bloc-desc">
             <h2>{Title_Data.portfolio_title}</h2>
             <p>
@@ -16,81 +32,55 @@ const Portfolio = () => {
             </p>
           </div>
 
-          <div className="bloc-content">
-            {Portfolio_Data.map((services, index) => {
-              const isOdd = index % 2 !== 0;
-              return (
-                <div className="card" key={index}>
-                  <div
-                    className={`row align-items-center ${
-                      isOdd ? "flex-row-reverse" : ""
-                    }`}
-                  >
-                    <div className="col-lg col-md-6">
-                      <img
-                        src={services.p_img}
-                        alt={services.p_title}
-                        className="img-fluid"
-                      />
-                    </div>
-                    <div className="col-lg col-md-6">
-                      <h3>{services.p_title}</h3>
-                      <div className="skills">
-                        <ul>
-                          {[
-                            services.p_skill1,
-                            services.p_skill2,
-                            services.p_skill3,
-                            services.p_skill4,
-                            services.p_skill5,
-                            services.p_skill6,
-                          ]
-                            .filter(Boolean)
-                            .map((skill, idx) => (
-                              <li key={idx}>{skill}</li>
-                            ))}
-                        </ul>
-                      </div>
+          <div className="row mt-4">
+            {/* Tabs */}
+            <div className="col-lg-2 col-md-2">
+              <ul className="nav nav-tabs flex-column mb-4">
+                {tabs.map((tab, index) => (
+                  <li className="nav-item" key={index}>
+                    <button
+                      className={`nav-link ${
+                        activeTab === tab ? "active" : ""
+                      }`}
+                      onClick={() => setActiveTab(tab)}
+                    >
+                      {tab}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-                      <div className="btns">
-                        <a href={services.p_demo} target="_blank">
-                          <span>Demo</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="15"
-                            height="15"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <line x1="2" y1="7" x2="13" y2="7" />
-                            <polyline points="8 3 13 7 8 11" />
-                          </svg>
-                        </a>
-                        <a href={services.p_code_source} target="_blank">
-                          <span>Source Code</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="15"
-                            height="15"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <line x1="2" y1="7" x2="13" y2="7" />
-                            <polyline points="8 3 13 7 8 11" />
-                          </svg>
-                        </a>
+            {/* Content */}
+            <div className="col-lg-10 col-md-10">
+              <div className="row">
+                {filteredProjects.map((project, index) => (
+                  <div key={index} className="col-md-6 mb-4">
+                    <a
+                      href={project.p_demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="card project-card"
+                    >
+                      {/* Image */}
+                      <img
+                        src={project.p_img}
+                        className="card-img-top"
+                        alt={project.p_title}
+                      />
+
+                      {/* Body */}
+                      <div className="card-body">
+                        <h5 className="card-title">{project.p_title}</h5>
+
+                        {/* Buttons */}
+                        <div className="card-text">Visit Website</div>
                       </div>
-                    </div>
+                    </a>
                   </div>
-                </div>
-              );
-            })}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
